@@ -71,7 +71,7 @@ const TvShows = () => {
             onClick={() => navigate(-1)}
             className="hover:text-[#6556CD] cursor-pointer ri-arrow-left-line"
           ></i>
-          Movies({<small>{category}</small>})
+          TvShows
         </h1>
         <div className="flex items-center w-[80%]">
           <Topnav />
