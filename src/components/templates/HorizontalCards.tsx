@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import noimage from "../../assets/images.png";
-const HorizontalCards = ({ data }: { data: any }) => {
+const HorizontalCards = ({ data, pathname }: { data: any; pathname: any }) => {
   console.log(data);
 
   return (
@@ -8,7 +8,7 @@ const HorizontalCards = ({ data }: { data: any }) => {
       {data.length > 0 ? (
         data.map((d: any, i: any) => (
           <Link
-            to={`/${d.media_type}/details/${d.id}`}
+            to={`/${d.media_type || "movie"}/details/${d.id}`}
             key={i}
             className="min-w-[15%] max-h-[50vh] bg-zinc-900 mr-5 mb-5"
           >

@@ -139,7 +139,10 @@ const PersonDetails = () => {
           <h1 className="text-xl mb-5 text-zinc-400 font-semibold mt-6">
             Casted In
           </h1>
-          <HorizontalCards data={info.combinedCredits.cast} />
+          <HorizontalCards
+            data={info.combinedCredits.cast}
+            pathname={"nothing"}
+          />
           <div className="w-full flex items-center justify-between">
             <h1 className="text-xl mb-5 text-zinc-400 font-semibold mt-6">
               Acting
