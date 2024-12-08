@@ -1,13 +1,11 @@
-import React from "react";
-
 const Dropdown = ({
   title,
   options,
   func,
 }: {
-  title: any;
-  options: any;
-  func: any;
+  title: string;
+  options: string[];
+  func: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }) => {
   return (
     <div className="select">
@@ -15,7 +13,7 @@ const Dropdown = ({
         <option value="0" disabled>
           {title}
         </option>
-        {options.map((o: string, i: number) => (
+        {options.map((o: string) => (
           <option value={o}>{o.toUpperCase()}</option>
         ))}
       </select>

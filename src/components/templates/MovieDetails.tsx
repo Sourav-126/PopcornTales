@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeMovie } from "../../store/reducers/movieSlice";
 import asyncLoadMovie from "../../store/actions/movieActions";
@@ -12,13 +12,14 @@ import {
 } from "react-router-dom";
 import Loading from "./Loading";
 import HorizontalCards from "../templates/HorizontalCards";
+import { AppDispatch } from "../../store/store";
 
 const Moviedetails = () => {
   const { pathname } = useLocation();
   console.log(pathname);
   const { info } = useSelector((state: any) => state.movie);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
   console.log(info);
 

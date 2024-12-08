@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../store/store";
 
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 
 // import Dropdown from "./partials/Dropdown"
@@ -17,10 +12,9 @@ import { asyncloadperson } from "../../store/actions/peopleActions";
 import { removePerson } from "../../store/reducers/peopleSlice";
 
 const PersonDetails = () => {
-  const { pathname } = useLocation();
-  const { info } = useSelector((state) => state.person);
+  const { info } = useSelector((state: any) => state.person);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
   const [category, setCategory] = useState("movie");
 
@@ -36,6 +30,7 @@ const PersonDetails = () => {
       {/* Part 1 navigation */}
       <nav className="h-[10vh] mt-12 mb-5 items-center w-full text-zinc-100 flex gap-10 text-xl">
         <Link
+          to=""
           onClick={() => navigate(-1)}
           className="text-2xl  hover:text-[#6556CD] duration-200 ri-arrow-left-line"
         ></Link>
@@ -152,8 +147,7 @@ const PersonDetails = () => {
             <Dropdown
               title="Category"
               options={["tv", "movie"]}
-              func=""
-              handleSetCategoryFilter={(e: any) => setCategory(e.target.value)}
+              func={(e: any) => setCategory(e.target.value)}
             />
           </div>
 

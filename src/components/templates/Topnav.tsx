@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "../../utils/axios";
-import images from "../../assets/images.png";
+// import images from "../../assets/images.png
 interface searchResult {
   id: number;
   title: string;

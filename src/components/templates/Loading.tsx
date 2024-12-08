@@ -1,4 +1,3 @@
-import React from "react";
 import loader from "../../assets/Bean Eater@1x-1.0s-200px-200px.gif";
 
 const Loading = () => {

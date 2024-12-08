@@ -1,9 +1,12 @@
 import axios from "../../utils/axios";
+import { ThunkAction } from "@reduxjs/toolkit";
 import { loadMovie } from "../reducers/movieSlice";
 export { removeMovie } from "../reducers/movieSlice";
-
+import { Action } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 export const asyncLoadMovie =
-  (id: any) => async (dispatch: any, getState: any) => {
+  (id: any): ThunkAction<void, RootState, unknown, Action<string>> =>
+  async (dispatch: any) => {
     try {
       const detail = await axios.get(`/movie/${id}`);
       const externalid = await axios.get(`/movie/${id}/external_ids`);

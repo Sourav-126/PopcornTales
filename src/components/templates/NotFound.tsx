@@ -1,4 +1,3 @@
-import React from "react";
 import notfound from "../../assets/mouxy-cotorep.gif";
 
 const NotFound = () => {

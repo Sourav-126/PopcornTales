@@ -24,7 +24,7 @@ const Movie = () => {
   const navigate = useNavigate();
   const [category, setCategory] = useState("now_playing");
   const [movie, setMovie] = useState<MovieCard[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
   document.title = "Movies";

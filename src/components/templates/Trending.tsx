@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Topnav from "./Topnav";
 import Dropdown from "./Dropdown";
 import { useState } from "react";
@@ -26,7 +26,7 @@ const Trending = () => {
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");
   const [trending, setTrending] = useState<TrendingCard[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   document.title = "Trending";
   const GetTrendingCards = async () => {
@@ -80,13 +80,13 @@ const Trending = () => {
           <Dropdown
             title="Category"
             options={["movie", "tv", "all"]}
-            func={(e) => setCategory(e.target.value)}
+            func={(e: any) => setCategory(e.target.value)}
           />
           <div className="w-[2%]"></div>
           <Dropdown
             title="Duration"
             options={["week", "day", "month"]}
-            func={(e) => setDuration(e.target.value)}
+            func={(e: any) => setDuration(e.target.value)}
           />
         </div>
       </div>

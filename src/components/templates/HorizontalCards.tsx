@@ -1,18 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import noimage from "../../assets/images.png";
-interface HorizantalCard {
-  id: number;
-  title?: string;
-  name?: string;
-  media_type: "movie" | "tv";
-  poster_path: string | null;
-  backdrop_path: string | null;
-  overview: string;
-  vote_average: number;
-  release_date?: string;
-  first_air_date?: string;
-}
-
 const HorizontalCards = ({ data }: { data: any }) => {
   console.log(data);
 

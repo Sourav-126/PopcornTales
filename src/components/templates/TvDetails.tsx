@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTV } from "../../store/reducers/tvSlice";
 import asyncLoadTV from "../../store/actions/tvActions";
+import noimage from "../../assets/images.png";
 import {
   Link,
   Outlet,
@@ -11,17 +12,18 @@ import {
 } from "react-router-dom";
 import Loading from "./Loading";
 import HorizontalCards from "../templates/HorizontalCards";
+import { AppDispatch } from "../../store/store";
 
 const TVdetails = () => {
   const { pathname } = useLocation();
   console.log(pathname);
   const { info } = useSelector((state: any) => state.tv);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(asyncLoadTV(id));
+    dispatch(asyncLoadTV(id || ""));
     return () => {
       dispatch(removeTV());
     };
@@ -38,6 +40,7 @@ const TVdetails = () => {
     >
       <nav className="h-[10vh] mt-5 mb-5 items-center w-full text-zinc-100 flex gap-10 text-xl">
         <Link
+          to=""
           onClick={() => navigate(-1)}
           className="text-2xl hover:text-[#6556CD] duration-200 ri-arrow-left-line"
         ></Link>
@@ -95,7 +98,7 @@ const TVdetails = () => {
             <h1 className="font-semibold text-2xl">Rating</h1>
             <h1 className="pt-2 font-medium">{info.detail.first_air_date}</h1>
             <h1 className="pt-2 font-medium">
-              {info.detail.genres.map((g) => g.name).join(", ")}
+              {info.detail.genres.map((g: any) => g.name).join(", ")}
             </h1>
             <h1 className="pt-2 font-medium">{info.detail.runtime} min</h1>
           </div>
@@ -163,7 +166,7 @@ const TVdetails = () => {
         <h1 className="mb-8 text-3xl font-bold text-white">Seasons</h1>
         <div className="w-[100%] pb-10 flex gap-10 overflow-x-auto overflow-y-hidden mb-5">
           {info.detail.seasons.length > 0 ? (
-            info.detail.seasons.map((s: any, i: any) => (
+            info.detail.seasons.map((s: any) => (
               <div className="flex flex-shrink-0 bg-zinc-800 flex-col rounded-lg overflow-hidden">
                 <img
                   className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)] h-[30vh] object-cover"

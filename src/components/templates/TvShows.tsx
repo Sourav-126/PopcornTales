@@ -24,7 +24,7 @@ const TvShows = () => {
   const navigate = useNavigate();
   const [category, setCategory] = useState("airing_today");
   const [tv, setTv] = useState<TvCard[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
   document.title = "Tv";

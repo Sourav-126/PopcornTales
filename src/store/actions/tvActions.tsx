@@ -1,9 +1,16 @@
 import axios from "../../utils/axios";
 import { loadTV } from "../reducers/tvSlice";
+// import { AppDispatch } from "../store";
 export { removeTV } from "../reducers/tvSlice";
+import { ThunkAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
+import { Action } from "@reduxjs/toolkit";
 
 export const asyncLoadTV =
-  (id: any) => async (dispatch: any, getState: any) => {
+  (
+    id: string
+  ): ThunkAction<Promise<void>, RootState, unknown, Action<string>> =>
+  async (dispatch: any) => {
     try {
       const detail = await axios.get(`/tv/${id}`);
       const externalid = await axios.get(`/tv/${id}/external_ids`);

@@ -1,6 +1,6 @@
 import axios from "../../utils/axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import VerticalCards from "./VerticalCards";
@@ -23,7 +23,7 @@ const Popular = () => {
   const navigate = useNavigate();
   const [category, setCategory] = useState("movie");
   const [popular, setPopular] = useState<PopularCard[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
   document.title = "Popular";
@@ -77,7 +77,7 @@ const Popular = () => {
           <Dropdown
             title="Category"
             options={["movie", "tv"]}
-            func={(e) => setCategory(e.target.value)}
+            func={(e: any) => setCategory(e.target.value)}
           />
           <div className="w-[2%]"></div>
         </div>

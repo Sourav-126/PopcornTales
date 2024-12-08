@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react"
 import ReactPlayer from "react-player";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ const Trailer = () => {
   return ytVideo ? (
     <div className="bg-[rgba(0,0,0,.9)] absolute z-100 top-0 left-0 w-screen h-screen flex items-center justify-center">
       <Link
+        to=""
         onClick={() => navigate(-1)}
         className="absolute  text-white text-3xl hover:text-[#6556CD] duration-200 ri-close-fill right-[5%] top-[5%]"
       ></Link>

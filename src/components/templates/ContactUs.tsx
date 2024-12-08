@@ -1,5 +1,3 @@
-import React from "react";
-
 import gif from "../../assets/mein-nahi-bataunga-johnny-lever.gif";
 const ContactUs = () => {
   return (

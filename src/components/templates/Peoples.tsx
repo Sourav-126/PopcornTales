@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import VerticalCards from "./VerticalCards";
-import Dropdown from "./Dropdown";
 import Topnav from "./Topnav";
 
 interface PeopleCard {
@@ -22,9 +21,9 @@ interface PeopleCard {
 }
 const Peoples = () => {
   const navigate = useNavigate();
-  const [category, setCategory] = useState("popular");
+  const [category] = useState("popular");
   const [people, setPeople] = useState<PeopleCard[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
   document.title = "Artists";
