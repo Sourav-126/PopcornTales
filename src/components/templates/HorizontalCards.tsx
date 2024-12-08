@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import noimage from "../../assets/images.png";
-const HorizontalCards = ({ data, pathname }: { data: any; pathname: any }) => {
+const HorizontalCards = ({ data }: { data: any }) => {
   console.log(data);
 
   return (

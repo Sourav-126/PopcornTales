@@ -175,7 +175,6 @@ const Moviedetails = () => {
               ? info.recommendations
               : info.similar
           }
-          pathname={pathname}
         />
       </div>
       <Outlet />
